@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+    <!-- Orbitron Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background: linear-gradient(135deg, #ff0000 0%, #000000 100%);
+            font-family: 'Orbitron', Arial, sans-serif;
+        }
+        header {
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            margin: 0 auto 24px auto;
+            letter-spacing: 2px;
+            font-size: 2.2em;
+            color: #fff;
+            text-shadow: 2px 2px 8px #000, 0 0 10px #ff0000;
+            word-break: break-word;
+            text-align: center;
+        }
+        main {
+            flex: 1 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        form {
+            width: 100%;
+            max-width: 420px;
+            margin: 40px auto 200px auto;
+            background: rgba(0,0,0,0.7);
+            border-radius: 16px;
+            box-shadow: 0 0 16px 2px #ff0000a0;
+            padding: 6px 4px 6px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        fieldset {
+            border: 2px solid #ff0000;
+            border-radius: 14px;
+            margin-bottom: 6px;
+            padding: 4px 4px 4px 4px;
+            width: 100%;
+        }
+        legend {
+            color: #ff0000;
+            font-size: 1.1em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            width: 100%;
+            word-break: break-word;
+            padding: 0 4px;
+        }
+        table {
+            width: 100%;
+            margin: 0 auto;
+            border-spacing: 2px 2px;
+        }
+        label {
+            color: #fff;
+            font-size: 0.95em;
+            margin-bottom: 0;
+        }
+        input, select, textarea {
+            font-family: 'Orbitron', Arial, sans-serif;
+            font-size: 0.95em;
+            border-radius: 6px;
+            border: 1.2px solid #ff0000;
+            padding: 2px 4px;
+            margin: 1px 0;
+            background: #1a1a1a;
+            color: #fff;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        input:required {
+            border: 2px ridge #ff2d2d;
+        }
+        input:optional {
+            border: 2px dashed #19e113;
+        }
+        input[readonly] {
+            background-color: #ffe600;
+            color: #000;
+            font-weight: 900;
+        }
+        input[type="radio"] {
+            width: 15px;
+            height: 15px;
+            accent-color: #ff0000;
+        }
+        input[type="radio"]:checked + label {
+            color: #ff0000;
+        }
+        input[type="submit"], input[type="reset"] {
+            border: 2px solid #ff0000;
+            border-radius: 18px;
+            background: #ff0000;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 6px 18px;
+            margin: 8px 4px 0 0;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background: #fff;
+            color: #ff0000;
+        }
+        select {
+            background-color: #2d0036;
+            border-radius: 8px;
+            font-size: 0.95em;
+            border: 1.2px solid #ff0000;
+            color: #fff;
+            width: 95%;
+            cursor: pointer;
+        }
+        textarea {
+            width: 95%;
+            background: #1a1a1a;
+            color: #fff;
+            border: 1.2px solid #ff0000;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        p {
+            display: none;
+        }
+        input:hover + p {
+            display: inline;
+            font-family: monospace;
+            background-color: #ffb3b3;
+            color: #2d0036;
+            font-size: medium;
+            border-radius: 5px;
+            padding: 2px 6px;
+        }
+        input:focus {
+            background-color: #330000;
+            font-weight: bold;
+            color: #ffe6e6;
+        }
+        img {
+            display: none;
+        }
+        input[type="email"]:focus:valid ~ img.valid {
+            display: inline;
+            width: 16px;
+            height: 16px;
+        }
+        input[type="email"]:focus:invalid ~ img.invalid {
+            display: inline;
+            width: 16px;
+            height: 16px;
+        }
+        input[name="age"]:focus:in-range:valid ~ img.valid {
+            display: inline;
+            width: 16px;
+            height: 16px;
+        }
+        input[name="age"]:focus:out-of-range:invalid ~ img.invalid {
+            display: inline;
+            width: 16px;
+            height: 16px;
+        }
+        @media (max-width: 500px) {
+            form {
+                padding: 6px;
+                max-width: 98vw;
+            }
+            fieldset {
+                padding: 4px;
+            }
+            h1 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Course Registration Form</h1>
+    </header>
+    <main>
+        <form action="">
+            <fieldset>
+                <legend>Personal details</legend>
+                <table>
+                    <tr>
+                        <td><label for="FN">First Name</label></td>
+                        <td><input type="text" id="FN" name="FN" placeholder="Ex:Medinii" size="10" maxlength="10" required> <p>Enter your Name</p></td>
+                    </tr>
+                    <tr>
+                        <td><label for="LN">Surname</label></td>
+                        <td><input type="text" id="LN" name="LN" placeholder="Ex:S" size="10" optional>
+                            <p>Enter Your Secondary Name</p></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mob">Mobile number</label></td>
+                        <td><input type="tel" id="mob" name="mob" placeholder="Ex:9900000000" size="10" required>
+                            <p>Enter Your Mobile Number</p></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mail">Email</label></td>
+                        <td>
+                            <input type="Email" id="mail" name="mail" size="10" placeholder="Ex:med@gmail.com" required>
+                            <p>Enter Your Email</p>
+                            <img class="valid" src="./ok.png" >
+                            <img class="invalid" src="no.png" ><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="pwd">Password</label></td>
+                        <td>
+                            <input type="Password" id="pwd" name="pwd" placeholder="min 8 characters" min="8" size="10" required> 
+                            <p>Include at least <br> 1 Uppercase <br> 1 lowercase <br> 1 Spl Char</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="cpwd">Confirm Password</label></td>
+                        <td><input type="Password" id="cpwd" name="cpwd" placeholder="min 8 characters" size="10" required><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">DOB</label></td>
+                        <td><input type="date" id="dob" name="dob" required title="Enter your date of birth" placeholder="YYYY-MM-DD"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="age">AGE</label></td>
+                        <td>
+                            <input type="number" id="age" name="age" required min="18" max="100" title="Enter your age" placeholder="18-100">
+                            <img class="valid" src="./ok.png" >
+                            <img class="invalid" src="./no.png" ><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender</label></td>
+                        <td>
+                            <input type="radio" name="gender" value="M" id="male"><label for="male">Male</label>
+                            <input type="radio" name="gender" value="F" id="female"><label for="female">Female</label>
+                            <input type="radio" name="gender" value="C" id="other"><label for="other">Others</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="Country">Select Country</label></td>
+                        <td>
+                            <select name="Country" id="Country" title="Select your country">
+                                <option class="opt" value="INDIA">INDIA</option>
+                                <option class="opt" value="USA">USA</option>
+                                <option class="opt" value="China">China</option>
+                            </select><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="pic">Upload Picture</label></td>
+                        <td><input type="file" id="pic" name="pic" title="Upload your picture"><br></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Course Details</legend>
+                <label for="Course">Select Course</label>
+                <select name="Course" id="Course" title="Select your course">
+                    <option value="PFS">Python Full Stack</option>
+                    <option value="JFS">Java Full Stack</option>
+                    <option value="CJ">Core Java</option>
+                    <option value="PDS">Python for DataScience</option>
+                </select><br>
+                <label>Delivery Mode</label>
+                <input type="radio" name="mode" value="ON" id="online"><label for="online">ONLINE</label>
+                <input type="radio" name="mode" value="OFF" id="offline"><label for="offline">OFFLINE</label><br><br>
+                <label for="institute">INSTITUTE NAME:</label>
+                <input type="text" id="institute" value="TAP ACADEMY" readonly title="Institute Name"><br>
+                <label for="comments">Comments</label><br>
+                <textarea id="comments" rows="3" cols="30" title="Any comments" placeholder="Enter any comments here"></textarea>
+            </fieldset>
+            <div style="text-align:center;">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </main>
+</body>
+</html>
